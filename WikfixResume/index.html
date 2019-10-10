@@ -14,6 +14,7 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/login_style.css" rel="stylesheet">
 
 </head>
 
@@ -104,38 +105,32 @@
                 &lt;!&ndash; sign up form &ndash;&gt;
             
             </div>-->
-            
-            <div class="sign-up-div">
-                <form method="post" id="signup-form">
-                    <h2 class="text-center">Sign up now</h2>
+            <div class="login-div">
+                <form method="post" id="login-form">
+                    <h2 class="text-center">Log in</h2>
                     <div class="form-group">
-                        <input type="name" id="name" class="form-control" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email"
-                               placeholder="Username (john.doe@example.com)"
+                        <input type="email" class="form-control" id="email" placeholder="Username (john.doe@example.com)"
                                required="required">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="password" placeholder="Password"
-                               required="required">
+                        <input type="password" class="form-control" id="password" placeholder="Password" required="required">
+                    </div>
+                    <div class="clearfix">
+                        <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+                        <br>
+                        <a href="#" class="pull-right">Forgot Password?</a>
                     </div>
                     <div class="form-group">
-                        <p><span><input type="checkbox"></span>By Signing up, I agree to the terms and conditions</p>
+                        <button type="submit" class="btn btn-primary btn-block">Log In</button>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                    <div>
+                        <button type="button" class="btn btn-primary btn-block">Log In with Linked In
+                        </button>
+                        <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = 'login.html';">Sign Up
+                        </button>
                     </div>
                 </form>
-                <div>
-                    <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = 'login.html';">Sign In
-                    </button>
-                    <hr>
-                    <button type="button" class="btn btn-primary btn-block">Sign In with Linked In
-                    </button>
-                </div>
-            </div>
-           
+            </div>          
             
             <!-- grid row -->
         

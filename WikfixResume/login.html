@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Log in</title>
+    <title>Sign Up</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/modules/events-handler.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -33,7 +33,7 @@
         <div class="collapse navbar-collapse" id="basicExampleNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="index.html">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -42,25 +42,37 @@
     </nav>
 </header>
 
-<div class="login-div">
-    <form method="post" id="login-form">
-        <h2 class="text-center">Log in</h2>
+<div class="sign-up-div">
+    <form method="post" id="signup-form">
+        <h2 class="text-center">Sign up now</h2>
         <div class="form-group">
-            <input type="email" class="form-control" id="email" placeholder="Username (john.doe@example.com)"
+            <input type="name" id="name" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" id="email"
+                   placeholder="Username (john.doe@example.com)"
                    required="required">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" id="password" placeholder="Password" required="required">
+            <input type="password" class="form-control" id="password" placeholder="Password"
+                   required="required">
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+            <p><span><input type="checkbox"></span>By Signing up, I agree to the terms and conditions</p>
         </div>
-        <div class="clearfix">
-            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-            <br>
-            <a href="#" class="pull-right">Forgot Password?</a>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
         </div>
     </form>
+    <div>
+        <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = 'index.html';">Log In
+        </button>
+        <hr>
+        <button type="button" class="btn btn-primary btn-block">Log In with Linked In
+        </button>
+    </div>
 </div>
+
+
 </body>
 </html>
