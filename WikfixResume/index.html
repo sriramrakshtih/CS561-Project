@@ -1,116 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> Resume Maker</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/login_style.css" rel="stylesheet">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title> Resume Maker</title>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="css/mdb.min.css" rel="stylesheet">
+        <!-- Your custom styles (optional) -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/login_style.css" rel="stylesheet">
+    </head>
 
-</head>
+    <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark primary-color">        
+            <a class="navbar-brand" href="#">Resume Maker </a>                        
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>         
+                </ul>
+            </div>    
+        </nav>
+    </header>
 
-<body>
-<!-- main navigation -->
-<header>
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark primary-color">
-        
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="#">Resume Maker </a>
-        
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-            
-            <!-- Links -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-               
-            
-            </ul>
-            
-        </div>
-        <!-- Collapsible content -->
-    
-    </nav>
-    <!--/.Navbar-->
-</header>
-<!-- main navigation -->
 
-<!-- main layout -->
-<main>
-    <!-- main container -->
-    <div class="container ">
-        
-        <!-- grid row -->
-        <div class="row ">
-            
-            <!-- grid col -->
-            
-            <!-- grid col -->
-            
-            <div class="col-md-5 ">
-                
-                <h2>Welcome to Resume Maker.</h2>
-                <hr>
-                <p>Here we help you create a resume withing minutes and let you present yourself in a better way than
-                    you could even imagine.</p>
-            
+
+    <main>    
+        <div class="container ">        
+            <!-- grid row -->
+            <div class="row ">  
+                <!-- grid col -->
+                <div class="col-md-5 ">                
+                    <h2>Welcome to Resume Maker.</h2>
+                    <hr>
+                    <p>Here we help you create a resume withing minutes and let you present yourself in a better way than
+                        you could even imagine.</p>            
+                </div>        
             </div>
-            <!-- grid col -->
-        
-        </div>
-        
-        <!-- grid row -->
-        
-        <!-- grid row -->
-        <div class="row ">
-            <!-- sign up form -->
-            <!--<div class="sign-up-div">
-                <h1>Sign up now</h1>
-                <form method="post" id="signup-form">
-                    <input type="name" id="name" class="input-box" placeholder="Your Name">
-                    <input type="email" id="email" class="input-box" placeholder="Your Email">
-                    <input type="password" id="password" class="input-box" placeholder="Your Password">
-                    <p><span><input type="checkbox"></span>By Signing up, I agree to the terms and conditions</p>
-                    <button type="button" class="signup-btn">Sign Up
-                    </button>
-                    <hr>
-                    <button type="button" class="signIn" onclick="window.location.href = 'login.html';">Sign In
-                    </button>
-                    <hr>
-                    <button type="button" class="signin-LinkedIn">Sign In with Linked In
-                    </button>
-                
-                
-                </form>
-                &lt;!&ndash; sign up form &ndash;&gt;
-            
-            </div>-->
             <div class="login-div">
                 <form method="post" id="login-form">
                     <h2 class="text-center">Log in</h2>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="Username (john.doe@example.com)"
-                               required="required">
+                        <input type="email" class="form-control" id="email" placeholder="Username (john.doe@example.com)" required="required">
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" id="password" placeholder="Password" required="required">
@@ -124,38 +64,24 @@
                         <button type="submit" class="btn btn-primary btn-block">Log In</button>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-primary btn-block">Log In with Linked In
-                        </button>
-                        <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = 'login.html';">Sign Up
-                        </button>
+                        <button type="button" class="btn btn-primary btn-block">Log In with Linked In </button>
+                        <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = 'login.html';">Sign Up</button>
                     </div>
                 </form>
-            </div>          
-            
-            <!-- grid row -->
-        
+            </div>    
         </div>
-        <!-- main container -->
-    </div>
-</main>
+    </main>
 
-<!-- main layout -->
-<!-- footer -->
-<footer>
-
-</footer>
-
-<!-- footer -->
-<!-- SCRIPTS -->
-<!-- JQuery -->
-<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="js/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="js/mdb.min.js"></script>
-<script src="js/modules/events-handler.js"></script>
-</body>
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script src="js/modules/events-handler.js"></script>
+    
+    </body>
 
 </html>

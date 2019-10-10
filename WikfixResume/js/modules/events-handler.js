@@ -16,7 +16,7 @@ $(document).ready(function () {
                 if (result) {
                     sessionStorage.setItem("token", result.token);
                     sessionStorage.setItem("user_id", result.user_id);
-                    window.location.replace('welcome.html');
+                    window.location.replace('form.html');
                 }
             },
             error: function () {
