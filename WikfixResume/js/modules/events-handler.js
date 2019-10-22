@@ -16,7 +16,11 @@ $(document).ready(function () {
                 if (result) {
                     sessionStorage.setItem("token", result.token);
                     sessionStorage.setItem("user_id", result.user_id);
+<<<<<<< HEAD
                     window.location.replace('form.html');
+=======
+                    window.location.replace('questionnaire.html');
+>>>>>>> 568a83b54f60c49d3eef4d5fb98e6edce2648c0a
                 }
             },
             error: function () {
@@ -54,5 +58,79 @@ $(document).ready(function () {
         }).done(function (msg) {
             alert("Data Saved: " + msg);
         });
-    })
+    });
+    
+    var settings = {
+        utilsScript: "js/modules/utils.js"
+    };
+    var input = document.querySelector("#contactNumber");
+    if(input) {
+        window.intlTelInput(input, settings);
+    }
+    
+    $('#hrefOtherSchool').click(function (e) {
+        e.preventDefault();
+        if(e.target.innerHTML === "Add another school") {
+            $('.other-school').removeClass('d-none');
+            e.target.innerHTML = "Remove other school";
+        } else if(e.target.innerHTML === "Remove other school") {
+            $('.other-school').addClass('d-none');
+            e.target.innerHTML = "Add another school";
+            $('.other-school').find('input, select').val('');
+        }
+    });
+    
+    $('#currentWork').change(function(){
+        if(this.checked) {
+            $('#jobEndDate').prop('disabled', true);
+        } else {
+            $('#jobEndDate').prop('disabled', false);
+        }
+    });
+    $('#currentWork1').change(function(){
+        if(this.checked) {
+            $('#jobEndDate1').prop('disabled', true);
+        } else {
+            $('#jobEndDate1').prop('disabled', false);
+        }
+    });
+    
+    $('#currentStudy').change(function(){
+        if(this.checked) {
+            $('#endDate').prop('disabled', true);
+        } else {
+            $('#endDate').prop('disabled', false);
+        }
+    });
+    
+    $('#currentStudy1').change(function(){
+        if(this.checked) {
+            $('#endDate1').prop('disabled', true);
+        } else {
+            $('#endDate1').prop('disabled', false);
+        }
+    });
+    
+    $('#currentProject').change(function(){
+        if(this.checked) {
+            $('#projectEndDate').prop('disabled', true);
+        } else {
+            $('#projectEndDate').prop('disabled', false);
+        }
+    });
+    
+    $('.next').click(function (e) {
+        e.preventDefault();
+        var thisForm = $(this).closest('form');
+        thisForm.addClass('d-none');
+        thisForm.next().removeClass('d-none');
+    });
+    
+    $('.prev').click(function (e) {
+        e.preventDefault();
+        var thisForm = $(this).closest('form');
+        thisForm.addClass('d-none');
+        thisForm.prev().removeClass('d-none');
+    });
+    
 });
