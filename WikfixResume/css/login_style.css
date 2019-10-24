@@ -1,11 +1,11 @@
 .login-div {
 	width: 400px;
   	margin: 150px auto;
-		background: rgb(182, 172, 153);
+		background: rgb(134, 134, 49);
 }
   .login-div form {
   	margin-bottom: 15px;
-      background: #EBF4FA;
+      background: rgb(248, 249, 250);
       box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
       padding: 30px;
 

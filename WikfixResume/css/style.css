@@ -3,23 +3,16 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
-<<<<<<< Updated upstream
-    background-image: rgb(86, 131, 158);
+    background-image: rgb(228, 233, 236);
 
-=======
     background: #E5E4E2;
->>>>>>> Stashed changes
 
 }
 
 .sign-up-div {
     width: 400px;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
-<<<<<<< Updated upstream
-    background: rgb(222, 240, 248);
-=======
-    background: #EBF4FA;
->>>>>>> Stashed changes
+    background: rgb(248, 249, 250);
     padding: 20px;
     margin: 5% auto 0;
     text-align: center;
