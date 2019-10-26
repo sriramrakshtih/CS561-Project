@@ -17,6 +17,12 @@
     <link href="css/questionnaire.css" rel="stylesheet">
 </head>
 
+<script>
+  function logoutAlert(){
+    alert("Logout was successful!");
+  }
+</script>
+
 <body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark primary-color">
@@ -25,7 +31,7 @@
                 aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="basicExampleNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -39,7 +45,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
-                
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -48,13 +54,19 @@
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-                </li> 
+                </li>
             </ul>
             <form class="form-inline">
                 <div class="md-form my-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 </div>
             </form> -->
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link ml-auto" href="#" onclick="logoutAlert();">Log out</a>
+            </li>
+          </ul>
         </div>
     </nav>
 </header>
@@ -86,12 +98,12 @@
             <textarea class="form-control" rows="2" id="careerObjective"
                       placeholder="Actively looking for Summer Internships"></textarea>
         </div>
-        
+
         <div class="form-group d-inline-flex">
             <button type="button" class="btn btn-primary btn-block next">Next</button>
         </div>
     </form>
-    
+
     <form action="" class="questionnaire-form d-none" id="websites">
         <h2 class="text-center">Your Websites / Online Presence</h2>
         <h6 class="text-center">Please provide the following URLs if you have any.</h6>
@@ -117,13 +129,13 @@
             <input type="url" class="form-control" id="competitiveCodingURL"
                    placeholder="https://www.codechef.com/users/johndoe">
         </div>
-        
+
         <div class="form-group d-inline-flex">
             <button type="button" class="btn btn-primary btn-block prev">Previous</button>
             <button type="button" class="btn btn-primary btn-block next">Next</button>
         </div>
     </form>
-    
+
     <form action="" class="questionnaire-form d-none" id="education">
         <h2 class="text-center">Education / Academics</h2>
         <div class="form-group required">
@@ -161,7 +173,7 @@
             <label class="control-label" for="gpa">CGPA / %</label>
             <input type="text" class="form-control" id="gpa" placeholder="8.59 / 10">
         </div>
-        
+
         <div id="hrefOtherSchool" class="form-group">
             <a href>Add another school</a>
         </div>
@@ -202,14 +214,14 @@
                 <input type="text" class="form-control" id="gpa1" placeholder="8.59 / 10">
             </div>
         </div>
-        
-        
+
+
         <div class="form-group d-inline-flex">
             <button type="button" class="btn btn-primary btn-block prev">Previous</button>
             <button type="button" class="btn btn-primary btn-block next">Next</button>
         </div>
     </form>
-    
+
     <form action="" class="questionnaire-form d-none" id="skills">
         <h2 class="text-center">Skills</h2>
         <div class="form-group">
@@ -241,7 +253,7 @@
             <button type="button" class="btn btn-primary btn-block next">Next</button>
         </div>
     </form>
-    
+
     <form action="" class="questionnaire-form d-none" id="experience">
         <h2 class="text-center">Professional Experience</h2>
         <div class="form-group">
@@ -269,13 +281,13 @@
             <textarea type="url" class="form-control" id="responsibilities"
                       placeholder="Development in Google Maps"></textarea>
         </div>
-        
+
         <div class="form-group d-inline-flex">
             <button type="button" class="btn btn-primary btn-block prev">Previous</button>
             <button type="button" class="btn btn-primary btn-block next">Next</button>
         </div>
     </form>
-    
+
     <form action="" class="questionnaire-form d-none" id="projects">
         <h2 class="text-center">Academic Projects</h2>
         <div class="form-group">
@@ -304,7 +316,7 @@
             <button type="button" class="btn btn-primary btn-block next">Next</button>
         </div>
     </form>
-    
+
     <form action="" class="questionnaire-form d-none" method="post" id="accoladesInterests">
         <h2 class="text-center">Accolades, Activities and Interests</h2><br/>
         <div class="form-group">
