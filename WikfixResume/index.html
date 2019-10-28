@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> Resume Maker</title>
+    <link rel="icon" href="img/logo.png">
+    <title>Resume Maker - Login</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -14,7 +15,6 @@
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/login_style.css" rel="stylesheet">
 
 </head>
 
@@ -22,10 +22,10 @@
 <!-- main navigation -->
 <header>
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top primary-color">
         
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="#">Resume Maker </a>
+        <a class="navbar-brand" href="index.html">Resume Maker</a>
         
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -39,14 +39,14 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <!--<a class="nav-link" href="#">Home
                         <span class="sr-only">(current)</span>
-                    </a>
+                    </a>-->
                 </li>
-               
+            
             
             </ul>
-            
+        
         </div>
         <!-- Collapsible content -->
     
@@ -61,80 +61,60 @@
     <div class="container ">
         
         <!-- grid row -->
-        <div class="row ">
+        <div class="row">
             
             <!-- grid col -->
             
             <!-- grid col -->
             
-            <div class="col-md-5 ">
-                
-                <h2>Welcome to Resume Maker.</h2>
+            <div class="col-md-5">
+                <div class="text-center">
+                    <img src="img/logo.png" height="72" width="72" class="mb-4 rounded img-fluid"
+                         alt="Resume Maker Logo">
+                </div>
+                <div class="text-center"><h2>Welcome to the Resume Maker</h2></div>
                 <hr>
-                <p>Here we help you create a resume withing minutes and let you present yourself in a better way than
-                    you could even imagine.</p>
-            
+                <p>Hey There! Wanting to create a new resume? Just give us your details and we are here to help you
+                    create a resume within minutes so that you can present yourself in a better way than you could ever
+                    imagine :)</p>
             </div>
             <!-- grid col -->
-        
-        </div>
-        
-        <!-- grid row -->
-        
-        <!-- grid row -->
-        <div class="row ">
-            <!-- sign up form -->
-            <!--<div class="sign-up-div">
-                <h1>Sign up now</h1>
-                <form method="post" id="signup-form">
-                    <input type="name" id="name" class="input-box" placeholder="Your Name">
-                    <input type="email" id="email" class="input-box" placeholder="Your Email">
-                    <input type="password" id="password" class="input-box" placeholder="Your Password">
-                    <p><span><input type="checkbox"></span>By Signing up, I agree to the terms and conditions</p>
-                    <button type="button" class="signup-btn">Sign Up
-                    </button>
-                    <hr>
-                    <button type="button" class="signIn" onclick="window.location.href = 'login.html';">Sign In
-                    </button>
-                    <hr>
-                    <button type="button" class="signin-LinkedIn">Sign In with Linked In
-                    </button>
-                
-                
-                </form>
-                &lt;!&ndash; sign up form &ndash;&gt;
             
-            </div>-->
-            <div class="login-div">
+            <div class="col-md-7 login-div">
                 <form method="post" id="login-form">
-                    <h2 class="text-center">Log in</h2>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="Username (john.doe@example.com)"
+                    <h2 class="text-center">Please Sign In</h2>
+                    <div class="form-group required">
+                        <input type="email" class="form-control" id="email"
+                               placeholder="Username (john.doe@example.com)"
                                required="required">
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="password" placeholder="Password" required="required">
+                    <div class="form-group required">
+                        <input type="password" class="form-control" id="password" placeholder="Password"
+                               required="required">
                     </div>
                     <div class="clearfix">
                         <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
                         <br>
-                        <a href="#" class="pull-right">Forgot Password?</a>
+                        <!--<a href="#" class="pull-right">Forgot Password?</a>-->
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block">Log In</button>
                     </div>
-                    <div>
-                        <button type="button" class="btn btn-primary btn-block">Log In with Linked In
-                        </button>
-                        <button type="button" class="btn btn-primary btn-block" onclick="window.location.href = 'login.html';">Sign Up
-                        </button>
+                    <hr/>
+                    <div class="form-group">
+                        <p>Don't have an account? <a href="login.html" class="pull-right">Sign Up Here!</a></p>
                     </div>
                 </form>
-            </div>          
+            </div>
             
             <!-- grid row -->
         
         </div>
+        
+        <!-- grid row -->
+        
+        <!-- grid row -->
+        
         <!-- main container -->
     </div>
 </main>
