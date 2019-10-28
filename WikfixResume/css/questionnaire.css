@@ -1,15 +1,16 @@
-body {
-    padding-top: 80px;
+#questionnaire-div {
+    width: 800px;
+    margin: 50px auto;
 }
 
-.login-div form, .sign-up-div form, .questionnaire-div form {
+.questionnaire-form {
     margin-bottom: 15px;
     background: #f3f3f3;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     padding: 30px;
 }
 
-.login-div h2, .sign-up-div h2, .questionnaire-div h2 {
+#questionnaire-div h2 {
     margin: 0 0 15px;
 }
 

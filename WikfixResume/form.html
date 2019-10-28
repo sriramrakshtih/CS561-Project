@@ -15,6 +15,12 @@
         <link href="css/login_style.css" rel="stylesheet">
     </head>
 
+    <script>
+      function logoutAlert(){
+        alert("Logout was successful!");
+      }
+    </script>
+
     <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark primary-color">
@@ -29,6 +35,9 @@
                         <a class="nav-link" href="index.html">Home
                             <span class="sr-only">(current)</span>
                         </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" onclick="logoutAlert();">Log out</a>
                     </li>
                 </ul>
             </div>
@@ -53,9 +62,9 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </div>
-        </form>        
+        </form>
     </div>
 
     </body>
-    
+
 </html>
