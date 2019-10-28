@@ -71,7 +71,7 @@
                 <form method="post" id="signup-form">
                     <h2 class="text-center">Sign up now</h2>
                     <div class="form-group">
-                        <input type="name" id="name" class="form-control" placeholder="Your Name" required>
+                        <input type="name" name="name" id="name" class="form-control" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
                         <input type="email" class="form-control" id="email"
@@ -79,7 +79,7 @@
                                required="required">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="password" placeholder="Password"
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Password"
                                required="required">
                     </div>
                     <div class="form-group">
@@ -107,8 +107,6 @@
     </div>
 </main>
 
-<!-- footer -->
-<!-- SCRIPTS -->
 <!-- JQuery -->
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <!-- Bootstrap tooltips -->
@@ -118,5 +116,7 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
 <script src="js/modules/events-handler.js"></script>
+<script src="js/modules/jquery.validate.min.js"></script>
+<script src="js/modules/form-validation.js"></script>
 </body>
 </html>
