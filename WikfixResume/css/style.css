@@ -1,28 +1,33 @@
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    background-image: rgb(228, 233, 236);
-
-    background: #E5E4E2;
-
+    padding-top: 80px;
 }
 
-.sign-up-div {
-    width: 400px;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
-    background: rgb(248, 249, 250);
-    padding: 20px;
-    margin: 5% auto 0;
-    text-align: center;
+.login-div form, .sign-up-div form, .questionnaire-div form {
+    margin-bottom: 15px;
+    background: #f3f3f3;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
 }
 
-.row{
- font-family: Verdana, sans-serif; font-size: 12pt;
-
+.login-div h2, .sign-up-div h2, .questionnaire-div h2 {
+    margin: 0 0 15px;
 }
 
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
 
+.btn {
+    font-size: 15px;
+    font-weight: bold;
+}
 
+.questionnaire-form .iti.iti--allow-dropdown {
+    display: block !important;
+}
 
+.form-group.required .control-label:after {
+    content: "*";
+    color: red;
+}
