@@ -1,55 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="icon" href="img/logo.png">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
     <title>Resume Maker - Login</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="css/style.css" rel="stylesheet">
+   <!--<link href="css/mdb.min.css" rel="stylesheet">-->
+     <!-- Index-Page-CSS -->
+     <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+     <!-- //fonts -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all">
+    <!-- Google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+	<!-- Google fonts -->
+</head>
 
 <body>
 <!-- main navigation -->
+<section class="main">
+<div class="layer">
 <header>
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top primary-color">
-        
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="index.html">Resume Maker</a>
-        
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-            
-            <!-- Links -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <!--<a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>-->
+        <div class="bottom-grid">
+			<div class="links">
+            <!-- Navbar brand -->
+            <ul class="links-unordered-list">
+                <li class="active">
+                <a class="navbar-brand" href="index.html">Resume Maker</a>
                 </li>
-            
-            
             </ul>
-        
-        </div>
-        <!-- Collapsible content -->
-    
-    </nav>
-    <!--/.Navbar-->
+            </div>
+            
+			<div class="links">
+				<ul class="links-unordered-list">
+					<li class="">
+						<a href="#"  class="">About Us</a>
+					</li>
+					<li class="active">
+						<a href="signup.html" class="">Register</a>
+					</li>
+					<li class="">
+						<a href="#" class="">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+       
 </header>
 <!-- main navigation -->
 
@@ -59,54 +74,74 @@
     <div class="container ">
         
         <!-- grid row -->
-        <div class="row">
-            
-            <!-- grid col -->
-            
-            <!-- grid col -->
-            
-            <div class="col-md-5">
-                <div class="text-center">
-                    <img src="img/logo.png" height="72" width="72" class="mb-4 rounded img-fluid"
+        <div class="row">          
+            <div class="content-w3ls">
+                    <div class="text-center icon">
+                        <img src="img/logo.png" height="72" width="72" class="mb-4 rounded img-fluid"
                          alt="Resume Maker Logo">
+                    </div>
+                    <div class="content-bottom">
+                        <form action="#" id="login-form" method="post">
+                            <div class="field-group">
+                                <span class="fa fa-user" aria-hidden="true"></span>
+                                <div class="wthree-field">
+                                    <input name="email" id="email" type="email" value="" placeholder="Username" required>
+                                </div>
+                            </div>
+                            <div class="field-group">
+                                <span class="fa fa-lock" aria-hidden="true"></span>
+                                <div class="wthree-field">
+                                    <input name="password" id="password" type="password" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="wthree-field">
+                                    <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                            </div>
+                            <ul class="list-login">
+                                <li class="switch-agileits">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                        keep Logged in
+                                    </label>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-right">forgot password?</a>
+                                </li>
+                                <li class="clearfix"></li>
+                            </ul>
+                            <ul class="list-login-bottom">
+                                <li class="">
+                                    <a href="signup.html" class="">Create Account</a>
+                                </li>
+                                <li class="">
+                                    <a href="#" class="text-right">Need Help?</a>
+                                </li>
+                                <li class="clearfix"></li>
+                            </ul>
+                        </form>
+                    </div>
                 </div>
-                <div class="text-center"><h2>Welcome to the Resume Maker</h2></div>
-                <hr>
-                <p>Hey There! Wanting to create a new resume? Just give us your details and we are here to help you
-                    create a resume within minutes so that you can present yourself in a better way than you could ever
-                    imagine :)</p>
-            </div>
-            <!-- grid col -->
-            
-            <div class="col-md-7 login-div">
-                <form method="post" id="login-form">
-                    <h2 class="text-center">Please Sign In</h2>
-                    <div class="form-group required">
-                        <input type="email" class="form-control" id="email"
-                               placeholder="Username (john.doe@example.com)"
-                               required="required">
-
+            <div class="bottom-grid1">
+                    <div class="links">
+                        <ul class="links-unordered-list">
+                            <li class="">
+                                <a href="#" class="">About Us</a>
+                            </li>
+                            <li class="">
+                                <a href="#" class="">Privacy Policy</a>
+                            </li>
+                            <li class="">
+                                <a href="#" class="">Terms of Use</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="form-group required">
-                        <input type="password" class="form-control" id="password" placeholder="Password"
-                               required="required">
+                    <div class="copyright">
+                        <p>© 2019 Key. All rights reserved </a>
+                        </p>
                     </div>
-                    <div class="clearfix">
-                        <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-                        <br>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">Log In</button>
-                    </div>
-                    <hr/>
-                    <div class="form-group">
-                        <p>Don't have an account? <a href="login.html" class="pull-right">Sign Up Here!</a></p>
-                    </div>
-                </form>
-            </div>
-            
+                </div>  
             <!-- grid row -->
-        
         </div>
         
         <!-- grid row -->
@@ -134,6 +169,8 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
 <script src="js/modules/events-handler.js"></script>
+</div>
+</section>
 </body>
 
 </html>

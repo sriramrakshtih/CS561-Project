@@ -129,63 +129,64 @@ $(document).ready(function () {
         }
     });
     
-    $('#personalInfo').validate({
-        highlight: function (element, errorClass) {
-            $(element).addClass(errorClass);
-            $(element.form).find("label[for=" + element.id + "]")
-                .addClass(errorClass);
-        },
-        unhighlight: function (element, errorClass) {
-            $(element).removeClass(errorClass);
-            $(element.form).find("label[for=" + element.id + "]")
-                .removeClass(errorClass);
-        },
-        rules: {
-            name: "required",
-            emailID: {
-                required: true,
-                email: true
+    if($('#personalInfo').length !== 0) {
+        $('#personalInfo').validate({
+            highlight: function (element, errorClass) {
+                $(element).addClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .addClass(errorClass);
             },
-            contactNumber: {
-                //ValidateContact: true,
-                required: true,
-                number: true,
+            unhighlight: function (element, errorClass) {
+                $(element).removeClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .removeClass(errorClass);
             },
-            mailingAddress: {
-                required: true,
-                minlength: 4
+            rules: {
+                name: "required",
+                emailID: {
+                    required: true,
+                    email: true
+                },
+                contactNumber: {
+                    //ValidateContact: true,
+                    required: true,
+                    number: true,
+                },
+                mailingAddress: {
+                    required: true,
+                    minlength: 4
+                }
+            },
+            messages: {
+                name: "Please specify your full name",
+                emailID: {
+                    required: "We need your email address for entering in your resume.",
+                    email: "Your email address must be in the format of name@domain.com"
+                },
+                contactNumber: {
+                    required: "Your contact number is essential."
+                },
+                mailingAddress: {
+                    required: "We need your mailing address for showing on your resume.",
+                    minlength: "Mailing address can't be less than 4 letters."
+                }
+                
             }
-        },
-        messages: {
-            name: "Please specify your full name",
-            emailID: {
-                required: "We need your email address for entering in your resume.",
-                email: "Your email address must be in the format of name@domain.com"
-            },
-            contactNumber: {
-                required: "Your contact number is essential."
-            },
-            mailingAddress: {
-                required: "We need your mailing address for showing on your resume.",
-                minlength: "Mailing address can't be less than 4 letters."
+        });
+        $.validator.addMethod("ValidateContact", function (value, element) {
+            // Do your usual stuff here.
+        }, function (params, element) {
+            var value = $(element).val(),
+                errorMap = ["Invalid number", "Invalid country code", "The number is too short", "The number is too long", "Invalid number"];
+            if (value.trim()) {
+                if (!iti.isValidNumber()) {
+                    var errorCode = iti.getValidationError();
+                    msg = errorMap[errorCode];
+                }
             }
-            
-        }
-    });
-    
-    $.validator.addMethod("ValidateContact", function (value, element) {
-        // Do your usual stuff here.
-    }, function (params, element) {
-        var value = $(element).val(),
-            errorMap = ["Invalid number", "Invalid country code", "The number is too short", "The number is too long", "Invalid number"];
-        if (value.trim()) {
-            if (!iti.isValidNumber()) {
-                var errorCode = iti.getValidationError();
-                msg = errorMap[errorCode];
-            }
-        }
-        return msg;
-    });
+            return msg;
+        });
+    }
     
     var questionnaireObject = {};
     
