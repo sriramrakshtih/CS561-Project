@@ -729,7 +729,7 @@ body {
     font-size: 15px;
     font-weight: bold;
 }
-
+*/
 .questionnaire-form .iti.iti--allow-dropdown {
     display: block !important;
 }
@@ -737,4 +737,4 @@ body {
 .form-group.required .control-label:after {
     content: "*";
     color: red;
-} */
+} 
