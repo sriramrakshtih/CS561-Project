@@ -128,7 +128,7 @@ $(document).ready(function () {
             $('#projectEndDate').prop('disabled', false);
         }
     });
-    
+
     if($('#personalInfo').length !== 0) {
         $('#personalInfo').validate({
             highlight: function (element, errorClass) {
@@ -151,6 +151,7 @@ $(document).ready(function () {
                     //ValidateContact: true,
                     required: true,
                     number: true,
+                    minlength: 10
                 },
                 mailingAddress: {
                     required: true,
@@ -164,15 +165,17 @@ $(document).ready(function () {
                     email: "Your email address must be in the format of name@domain.com"
                 },
                 contactNumber: {
-                    required: "Your contact number is essential."
+                    required: "Your contact number is essential.",
+                    minlength: "Invalid Phone Number."
                 },
                 mailingAddress: {
                     required: "We need your mailing address for showing on your resume.",
                     minlength: "Mailing address can't be less than 4 letters."
                 }
-                
+
             }
         });
+
         $.validator.addMethod("ValidateContact", function (value, element) {
             // Do your usual stuff here.
         }, function (params, element) {
@@ -187,37 +190,155 @@ $(document).ready(function () {
             return msg;
         });
     }
-    
+
+    if($('#education').length !== null) {
+        $('#education').validate({
+            highlight: function (element, errorClass) {
+                $(element).addClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).removeClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .removeClass(errorClass);
+            },
+            rules: {
+                endDate: {
+                    required: true,
+                    greaterThan: "#startDate"
+                },
+                gpa: {
+                    //lesserThan: "#4"
+                    range:[0,4]
+                },
+
+                endDate1: { greaterThan: "#startDate1" },
+                gpa1: {
+                    //lesserThan: "#4"
+                    range:[0,4]
+                }
+            },
+            messages: {
+                gpa: {
+                    range: "CGPA should be lesser than 4"
+                },
+                endDate: {
+                    greaterThan: "End date should be greater than Start Date"
+                },
+                gpa1: {
+                    range: "CGPA should be lesser than 4"
+                },
+                endDate1: {
+                    greaterThan: "End date should be greater than Start Date"
+                }
+            }
+        });
+
+        jQuery.validator.addMethod("greaterThan",
+            function(value, element, params) {
+
+                if (!/Invalid|NaN/.test(new Date(value))) {
+                    return new Date(value) > new Date($(params).val());
+                }
+
+                return isNaN(value) && isNaN($(params).val())
+                    || (Number(value) > Number($(params).val()));
+            },'Must be greater than {0}.');
+
+        jQuery.validator.addMethod("lesserThan",
+            function(value, element, params) {
+
+                if (!/Invalid|NaN/.test(new Date(value))) {
+                    return new Date(value) < new Date($(params).val());
+                }
+
+                return isNaN(value) && isNaN($(params).val())
+                    || (Number(value) < Number($(params).val()));
+            },'Must be greater than {0}.');
+    }
+
+    if($('#websites').length !== 0) {
+        $('#websites').validate({
+            highlight: function (element, errorClass) {
+                $(element).addClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).removeClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .removeClass(errorClass);
+            },
+            rules: {
+                ownWebsite: {
+                    url : true,
+                },
+                linkedInURL: {
+                    url : true,
+                },
+                githubURL: {
+                    url : true,
+                },
+                googleScholarsURL: {
+                    url : true,
+                },
+                competitiveCodingURL: {
+                    url : true,
+                }
+
+            },
+            messages: {
+                ownWebsite: {
+                    url: "Please enter a valid url."
+                },
+                linkedInURL: {
+                    url: "Please enter a valid url."
+                },
+                githubURL: {
+                    url: "Please enter a valid url."
+                },
+                googleScholarsURL: {
+                    url: "Please enter a valid url."
+                },
+                competitiveCodingURL: {
+                    url: "Please enter a valid url."
+                }
+            }
+        });
+    }
+
+
     var questionnaireObject = {};
     
     $('.next').click(function (e) {
         e.preventDefault();
         var thisForm = $(this).closest('form');
-        // if (thisForm.valid()) {
+         if (thisForm.valid()) {
         thisForm.serializeArray().map(function (x) {
             questionnaireObject[x.name] = x.value;
         });
         thisForm.addClass('d-none');
         thisForm.next().removeClass('d-none');
-        /* } else if(!thisForm.serializeArray()) {
+         } else if(!thisForm.serializeArray()) {
              thisForm.addClass('d-none');
              thisForm.next().removeClass('d-none');
-         }*/
+         }
     });
     
     $('.prev').click(function (e) {
         e.preventDefault();
         var thisForm = $(this).closest('form');
-        // if (thisForm.valid()) {
+        if (thisForm.valid()) {
         thisForm.serializeArray().map(function (x) {
             questionnaireObject[x.name] = x.value;
         });
         thisForm.addClass('d-none');
         thisForm.prev().removeClass('d-none');
-        /*} else if(!thisForm.serializeArray()) {
+        } else if(!thisForm.serializeArray()) {
             thisForm.addClass('d-none');
             thisForm.next().removeClass('d-none');
-        }*/
+        }
     });
     
     function showPreview() {
