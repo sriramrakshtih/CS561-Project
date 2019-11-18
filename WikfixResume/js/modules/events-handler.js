@@ -129,7 +129,7 @@ $(document).ready(function () {
         }
     });
 
-    if($('#personalInfo').length !== 0) {
+    if ($('#personalInfo').length !== 0) {
         $('#personalInfo').validate({
             highlight: function (element, errorClass) {
                 $(element).addClass(errorClass);
@@ -341,30 +341,9 @@ $(document).ready(function () {
         }
     });
     
-    function showPreview() {
-        $.ajax({
-            method: 'GET',
-            //contentType: "application/json",
-            //dataType: 'json',
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
-            },
-            url: 'https://resume-server-561.herokuapp.com/data/fetch' + localStorage.getItem('user_id'),
-            //data: JSON.stringify(questionnaireObject),
-            success: function (result) {
-                if (result) {
-                    console.log(result.data);
-                }
-            },
-            error: function (result) {
-                alert("Couldn't retrieve data!")
-            }
-        })
-    }
-    
     $('#questionnaireSubmit').click(function (e) {
         e.preventDefault();
-        var queryParams = '?user_id=' + localStorage.getItem('user_id') + '#payload=' + JSON.stringify(questionnaireObject);
+        var queryParams = '?user_id=' + localStorage.getItem('user_id') + '&payload=' + JSON.stringify(questionnaireObject);
         queryParams = queryParams.split(' ').join('%20').split('"').join('%22');
         $.ajax({
             method: 'GET',
@@ -378,7 +357,7 @@ $(document).ready(function () {
             success: function (result) {
                 if (result) {
                     alert(result.msg);
-                    showPreview();
+                    window.location.replace('preview-and-generate.html');
                 }
             },
             error: function (result) {
