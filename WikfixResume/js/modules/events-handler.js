@@ -236,7 +236,6 @@ $(document).ready(function () {
             //data: JSON.stringify(questionnaireObject),
             success: function (result) {
                 if (result) {
-                    alert(result.msg);
                     window.location.replace('preview-and-generate.html');
                 }
             },
@@ -246,4 +245,38 @@ $(document).ready(function () {
         })
     });
     /**----------------------------- Questionnaire Related Ends-----------------------------**/
+
+    $('#show-template').click(function (e) {
+        e.preventDefault();
+        window.location.replace('select-template.html');
+    });
+    
+    $('#generate-resume').click(function (e) {
+        e.preventDefault();
+        var queryParams = '?user_id=' + localStorage.getItem('user_id') + '&template_code=1';
+        $.ajax({
+            method: 'GET',
+            //contentType: "application/json",
+            //dataType: 'json',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+            },
+            url: 'https://resume-server-561.herokuapp.com/data/download' + queryParams,
+            //data: JSON.stringify(questionnaireObject),
+            success: function (result) {
+                if (result) {
+                
+                }
+            },
+            error: function (result) {
+                alert("Couldn't fetch resume template!")
+            }
+        })
+    });
+    
+    $('.template-div img').click(function () {
+        $('.template-div img').removeClass('selected');
+        $(this).addClass('selected');
+        //$(this).toggleClass('selected').siblings('img').removeClass('selected');
+    });
 });

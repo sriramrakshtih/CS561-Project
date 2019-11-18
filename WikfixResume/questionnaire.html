@@ -137,28 +137,29 @@
                             <h6 class="text-center">Please provide the following URLs if you have any.</h6>
                             <div class="form-group">
                                 <label class="control-label" for="ownWebsite">Own Website URL</label>
-                                <input type="url" class="form-control" id="ownWebsite"
+                                <input type="url" class="form-control" id="ownWebsite" name="ownWebsite"
                                        placeholder="http://www.jonhdoe.com">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="linkedInURL">LinkedIn URL</label>
-                                <input type="url" class="form-control" id="linkedInURL"
+                                <input type="url" class="form-control" id="linkedInURL" name="linkedInURL"
                                        placeholder="https://www.linkedin.com/in/johndoe/">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="githubURL">GitHub URL</label>
-                                <input type="url" class="form-control" id="githubURL"
+                                <input type="url" class="form-control" id="githubURL" name="githubURL"
                                        placeholder="https://github.com/johndoe">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="googleScholarsURL">Google Scholars URL</label>
-                                <input type="url" class="form-control" id="googleScholarsURL"
+                                <input type="url" class="form-control" id="googleScholarsURL" name="googleScholarsURL"
                                        placeholder="https://scholar.google.com/johndoe">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="competitiveCodingURL">Competitive Coding Platform
                                     URL</label>
                                 <input type="url" class="form-control" id="competitiveCodingURL"
+                                       name="competitiveCodingURL"
                                        placeholder="https://www.codechef.com/users/johndoe">
                             </div>
                             
@@ -172,13 +173,13 @@
                             <h2 class="text-center">Education / Academics</h2>
                             <div class="form-group required">
                                 <label class="control-label" for="university">School Name</label>
-                                <input type="text" class="form-control" id="university"
+                                <input type="text" class="form-control" id="university" name="university"
                                        placeholder="Oregon State University"
                                        required>
                             </div>
                             <div class="form-group required">
                                 <label class="control-label" for="degree">Degree Sought</label>
-                                <select class="form-control" id="degree" required>
+                                <select class="form-control" id="degree" name="degree" required>
                                     <option>--Select--</option>
                                     <option>High School</option>
                                     <option>Undergraduate / Bachelors</option>
@@ -188,18 +189,20 @@
                             </div>
                             <div class="form-group required">
                                 <label class="control-label" for="concentration">Concentration of study</label>
-                                <input type="text" class="form-control" id="concentration"
+                                <input type="text" class="form-control" id="concentration" name="concentration"
                                        placeholder="Computer Science"
                                        required>
                             </div>
                             <div class="form-group required">
                                 <label class="control-label" for="startDate">Start Date</label>
-                                <input type="date" class="form-control" id="startDate" placeholder="MM/dd/yyyy"
+                                <input type="date" class="form-control" id="startDate" name="startDate"
+                                       placeholder="MM/dd/yyyy"
                                        required>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="endDate">End Date</label>
-                                <input type="date" class="form-control" id="endDate" placeholder="MM/dd/yyyy">
+                                <input type="date" class="form-control" id="endDate" name="endDate"
+                                       placeholder="MM/dd/yyyy">
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="currentStudy">
@@ -207,7 +210,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="gpa">CGPA / %</label>
-                                <input type="text" class="form-control" id="gpa" placeholder="8.59 / 10">
+                                <input type="text" class="form-control" id="gpa" name="gpa" placeholder="8.59 / 10">
                             </div>
                             
                             <div id="hrefOtherSchool" class="form-group">
@@ -216,13 +219,13 @@
                             <div class="other-school d-none">
                                 <div class="form-group required">
                                     <label class="control-label" for="university1">School Name</label>
-                                    <input type="text" class="form-control" id="university1"
+                                    <input type="text" class="form-control" id="university1" name="university1"
                                            placeholder="Oregon State University"
                                            required>
                                 </div>
                                 <div class="form-group required">
                                     <label class="control-label" for="degree1">Degree Sought</label>
-                                    <select class="form-control" id="degree1" required>
+                                    <select class="form-control" id="degree1" name="degree1" required>
                                         <option>--Select--</option>
                                         <option>High School</option>
                                         <option>Undergraduate / Bachelors</option>
@@ -232,27 +235,30 @@
                                 </div>
                                 <div class="form-group required">
                                     <label class="control-label" for="concentration1">Concentration of study</label>
-                                    <input type="text" class="form-control" id="concentration1"
+                                    <input type="text" class="form-control" id="concentration1" name="concentration1"
                                            placeholder="Computer Science"
                                            required>
                                 </div>
                                 <div class="form-group required">
                                     <label class="control-label" for="startDate1">Start Date</label>
-                                    <input type="date" class="form-control" id="startDate1" placeholder="mm/dd/yyyy"
+                                    <input type="date" class="form-control" id="startDate1" name="startDate1"
+                                           placeholder="mm/dd/yyyy"
                                            required>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="endDate1">End Date</label>
-                                    <input type="date" class="form-control" id="endDate1" placeholder="mm/dd/yyyy"
+                                    <input type="date" class="form-control" id="endDate1" name="endDate1"
+                                           placeholder="mm/dd/yyyy"
                                            required>
                                 </div>
                                 <div class="form-check">
                                     <label class="control-label" for="currentStudy1">I currently study here</label>
-                                    <input type="checkbox" class="form-control" id="currentStudy1">
+                                    <input type="checkbox" class="form-control" id="currentStudy1" name="currentStudy1">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="gpa1">CGPA / %</label>
-                                    <input type="text" class="form-control" id="gpa1" placeholder="8.59 / 10">
+                                    <input type="text" class="form-control" id="gpa1" name="gpa1"
+                                           placeholder="8.59 / 10">
                                 </div>
                             </div>
                             
@@ -267,22 +273,22 @@
                             <h2 class="text-center">Skills</h2>
                             <div class="form-group">
                                 <label class="control-label" for="technical">Technical</label>
-                                <input type="text" class="form-control" id="technical"
+                                <input type="text" class="form-control" id="technical" name="technical"
                                        placeholder="List Computer Languages and Programming Languages">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="laboratory">Laboratory</label>
-                                <input type="text" class="form-control" id="laboratory"
-                                       placeholder="List Sscientific / research lab techniques or tools">
+                                <input type="text" class="form-control" id="laboratory" name="laboratory"
+                                       placeholder="List Scientific / Research lab techniques or tools">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="languages">Languages</label>
-                                <input type="text" class="form-control" id="languages"
+                                <input type="text" class="form-control" id="languages" name="languages"
                                        placeholder="List foreign languages">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="otherSkills">Other Skills</label>
-                                <input type="text" class="form-control" id="otherSkills"
+                                <input type="text" class="form-control" id="otherSkills" name="otherSkills"
                                        placeholder="Communications, Leadership">
                             </div>
                             <div class="wthree-field">
@@ -295,19 +301,23 @@
                             <h2 class="text-center">Professional Experience</h2>
                             <div class="form-group">
                                 <label class="control-label" for="orgName">Organization name</label>
-                                <input type="text" class="form-control" id="orgName" placeholder="Google LLC">
+                                <input type="text" class="form-control" id="orgName" name="orgName"
+                                       placeholder="Google LLC">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="jobTitle">Job Title</label>
-                                <input type="text" class="form-control" id="jobTitle" placeholder="Software Engineer">
+                                <input type="text" class="form-control" id="jobTitle" name="jobTitle"
+                                       placeholder="Software Engineer">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="jobStartDate">Start Date</label>
-                                <input type="date" class="form-control" id="jobStartDate" placeholder="MM/dd/yyyy">
+                                <input type="date" class="form-control" id="jobStartDate" name="jobStartDate"
+                                       placeholder="MM/dd/yyyy">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="jobEndDate">End Date</label>
-                                <input type="date" class="form-control" id="jobEndDate" placeholder="MM/dd/yyyy">
+                                <input type="date" class="form-control" id="jobEndDate" name="jobEndDate"
+                                       placeholder="MM/dd/yyyy">
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="currentWork">
@@ -316,7 +326,7 @@
                             <div class="form-group">
                                 <label class="control-label" for="responsibilities">Responsibilities and work in
                                     brief</label>
-                                <textarea type="url" class="form-control" id="responsibilities"
+                                <textarea type="url" class="form-control" id="responsibilities" name="responsibilities"
                                           placeholder="Development in Google Maps"></textarea>
                             </div>
                             
@@ -330,16 +340,18 @@
                             <h2 class="text-center">Academic Projects</h2>
                             <div class="form-group">
                                 <label class="control-label" for="projectTitle">Project Title</label>
-                                <input type="text" class="form-control" id="projectTitle"
+                                <input type="text" class="form-control" id="projectTitle" name="projectTitle"
                                        placeholder="ResumeMaker for CS-561">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="projectStartDate">Start Date</label>
-                                <input type="date" class="form-control" id="projectStartDate" placeholder="MM/dd/yyyy">
+                                <input type="date" class="form-control" id="projectStartDate" name="projectStartDate"
+                                       placeholder="MM/dd/yyyy">
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="projectEndDate">End Date</label>
-                                <input type="date" class="form-control" id="projectEndDate" placeholder="MM/dd/yyyy">
+                                <input type="date" class="form-control" id="projectEndDate" name="projectEndDate"
+                                       placeholder="MM/dd/yyyy">
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="currentProject">
@@ -348,7 +360,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="projectSummary">Project Summary</label>
-                                <textarea type="text" class="form-control" id="projectSummary"
+                                <textarea type="text" class="form-control" id="projectSummary" name="projectSummary"
                                           placeholder=""></textarea>
                             </div>
                             <div class="wthree-field">
@@ -361,12 +373,12 @@
                             <h2 class="text-center">Accolades, Activities and Interests</h2><br/>
                             <div class="form-group">
                                 <label class="control-label" for="accolades">Accolades</label>
-                                <textarea type="text" class="form-control" id="accolades"
+                                <textarea type="text" class="form-control" id="accolades" name="accolades"
                                           placeholder="First runner up at hackathon"></textarea>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="activities">Activities and Interests</label>
-                                <textarea type="text" class="form-control" id="activities"
+                                <textarea type="text" class="form-control" id="activities" name="activities"
                                           placeholder="Volunteer at OSU UHDS, Love hiking"></textarea>
                             </div>
                             <div class="wthree-field">
