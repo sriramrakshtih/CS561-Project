@@ -71,26 +71,21 @@
                     <!-- grid row -->
                     <div class="row">
                         
-                        <div class="col-md-8 preview-div m-auto">
-                            <h2>You have entered the following details:</h2>
-                            <table class="table text-white table-dark table-striped rounded">
-                                <thead class="table-light text-dark">
-                                <tr>
-                                    <th scope="col">Field</th>
-                                    <th scope="col">Your Input</th>
-                                </tr>
-                                </thead>
-                                <tbody id="preview_data">
-                                </tbody>
-                            </table>
+                        <div class="col-md-8 template-div m-auto">
+                            <h2>Pick a template: </h2><br/>
+                            <div class="row">
+                                <div class="col-md-6 m-auto text-center">
+                                    <img src="img/Template_1.jpg" style="width: 70%;" alt="Template 1"></a>
+                                </div>
+                                <div class="col-md-6 m-auto text-center">
+                                    <img src="img/Template_2.jpg" style="width: 70%;" alt="Template 2"></a>
+                                </div>
+                            </div>
                             <div class="wthree-field">
-                                <button type="submit" class="btn btn-primary btn-block" id="show-template">Generate
-                                    Resume
-                                </button>
+                                <button type="submit" class="btn btn-primary btn-block" id="generate-resume">Pick Template and View Resume</button>
                             </div>
                         </div>
                     </div>
-                </div>
             </main>
         
         </header>
@@ -143,83 +138,5 @@
 <script type="text/javascript" src="js/mdb.min.js"></script>
 <script src="js/modules/intlTelInput.js"></script>
 <script src="js/modules/events-handler.js"></script>
-
-<script>
-    var map = {
-        'name': 'Name',
-        'emailID': 'Email Address',
-        'contactNumber': 'Contact Number',
-        'mailingAddress': 'Mailing Address',
-        'careerObjective': 'Career Objective',
-        'ownWebsite': 'Your Website',
-        'linkedInURL': 'LinkedIn URL',
-        'githubURL': 'GitHub URL',
-        'googleScholarsURL': 'Google Scholars URL',
-        'competitiveCodingURL': 'Competitive Coding Platform URL',
-        'university': 'School Name',
-        'degree': 'Degree Obtained',
-        'concentration': 'Concentration of Study',
-        'startDate': 'Start Date',
-        'endDate': 'End Date',
-        'gpa': 'GPA',
-        'university1': 'Another School Name',
-        'degree1': 'Degree Obtained',
-        'concentration1': 'Concentration of Study',
-        'startDate1': 'Start Date',
-        'endDate1': 'End Date',
-        'gpa1': 'GPA',
-        'technical': 'Technical Skills',
-        'laboratory': 'Laboratory Work',
-        'languages': 'Languages Known',
-        'otherSkills': 'Other Skills',
-        'orgName': 'Organization Name',
-        'jobTitle': 'Job title',
-        'jobStartDate': 'Job Start Date',
-        'jobEndDate': 'Job End Date',
-        'responsibilities': 'Job Responsibilities',
-        'projectTitle': 'Project Title',
-        'projectStartDate': 'Project Start Date',
-        'projectEndDate': 'Project End Date',
-        'projectSummary': 'Project Summary',
-        'accolades': 'Accolades',
-        'activities': 'Activities & Interests'
-    };
-    
-    function showPreview() {
-        $.ajax({
-            method: 'GET',
-            //contentType: "application/json",
-            //dataType: 'json',
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
-            },
-            url: 'https://resume-server-561.herokuapp.com/data/fetch?user_id=' + localStorage.getItem('user_id'),
-            //data: JSON.stringify(questionnaireObject),
-            success: function (result) {
-                if (result) {
-                    var outputJSON = JSON.parse(result.data);
-                    var tr;
-                    for (var key of Object.keys(outputJSON)) {
-                        if (outputJSON[key] && outputJSON[key] !== "--Select--") {
-                            tr = $('<tr/>');
-                            tr.append("<td>" + map[key] + "</td>");
-                            tr.append("<td>" + outputJSON[key] + "</td>");
-                            $('#preview_data').append(tr);
-                        }
-                    }
-                }
-            },
-            error: function (result) {
-                alert("Couldn't retrieve data!")
-            }
-        });
-    }
-    
-    if (!localStorage.getItem('token')) {
-        window.location.replace('index.html');
-    } else {
-        showPreview();
-    }
-</script>
 </body>
 </html>
