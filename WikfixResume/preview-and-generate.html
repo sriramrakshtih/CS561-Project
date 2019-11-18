@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="icon" href="img/logo.png">
+    <title>Resume Maker - Welcome to the resume building</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/intlTelInput.min.css">
+</head>
+
+<body>
+<header>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top primary-color">
+        
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="index.html">Resume Maker</a>
+        
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+            
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <!--<a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>-->
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a id="logout" class="nav-link" href>Logout
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Collapsible content -->
+    </nav>
+    <!--/.Navbar-->
+</header>
+
+<main>
+    <!-- main container -->
+    <div class="container ">
+        
+        <!-- grid row -->
+        <div class="row">
+            
+            <div class="col-md-8 preview-div">
+                <p>You have entered the following data: </p>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Field</th>
+                        <th scope="col">Your Input</th>
+                    </tr>
+                    </thead>
+                    <tbody id="preview_data">
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- grid row -->
+        
+        </div>
+    </div>
+</main>
+
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+
+<script src="js/jquery.validate.min.js"></script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<script src="js/modules/intlTelInput.js"></script>
+<script src="js/modules/events-handler.js"></script>
+
+<script>
+    function showPreview() {
+        $.ajax({
+            method: 'GET',
+            //contentType: "application/json",
+            //dataType: 'json',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+            },
+            url: 'https://resume-server-561.herokuapp.com/data/fetch?user_id=' + localStorage.getItem('user_id'),
+            //data: JSON.stringify(questionnaireObject),
+            success: function (result) {
+                if (result) {
+                    var outputJSON = JSON.parse(result.data);
+                    var tr;
+                    for (var key of Object.keys(outputJSON)) {
+                        tr = $('<tr/>');
+                        tr.append("<td>" + key + "</td>");
+                        tr.append("<td>" + outputJSON[key] + "</td>");
+                        $('#preview_data').append(tr);
+                    }
+                }
+            },
+            error: function (result) {
+                alert("Couldn't retrieve data!")
+            }
+        });
+    }
+    
+    if (!localStorage.getItem('token')) {
+        window.location.replace('index.html');
+    } else {
+        showPreview();
+    }
+</script>
+</body>
+</html>
