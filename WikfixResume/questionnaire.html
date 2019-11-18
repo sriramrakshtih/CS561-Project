@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="icon" href="img/logo.png">
-    <title>Resume Maker - Welcome to the resume building</title>
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+    <title>Resume Maker - Login</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all">
+    <!-- Bootstrap core CSS -->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- Material Design Bootstrap -->
+   <!--<link href="css/mdb.min.css" rel="stylesheet">-->
+     <!-- Index-Page-CSS -->
+     <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+     <!-- //fonts -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all">
+    <!-- Google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+    <!-- Google fonts -->
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
@@ -24,42 +48,38 @@
 </head>
 
 <body>
-<header>
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top primary-color">
-        
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="index.html">Resume Maker</a>
-        
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-            
-            <!-- Links -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <!--<a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>-->
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a id="logout" class="nav-link" href>Logout
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- Collapsible content -->
-    </nav>
-    <!--/.Navbar-->
-</header>
+<!-- main navigation -->
+<section class="main">
+<div class="layer">
+        <header>
+                <div class="bottom-grid">
+                    <div class="links">
+                    <!-- Navbar brand -->
+                    <ul class="links-unordered-list">
+                        <li class="active">
+                        <a class="navbar-brand" href="index.html">Resume Maker</a>
+                        </li>
+                    </ul>
+                    </div>
+                    
+                    <div class="links">
+                        <ul class="links-unordered-list">
+                            <li class="active">
+                                <a href="signup.html" class="">Register</a>
+                            </li>
+                            <li class="active">
+                                <a href="about.html"  class="">About Us</a>
+                            </li>
+                            <li class="active">
+                                    <a id="logout" class="nav-link" href>Logout
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+               
+        </header>
 
 <main>
     <!-- main container -->
@@ -115,8 +135,8 @@
                                   placeholder="Actively looking for Summer Internships"></textarea>
                     </div>
                     
-                    <div class="form-group d-inline-flex">
-                        <button type="button" class="btn btn-primary btn-block next">Next</button>
+                    <div class="wthree-field">
+                        <button type="submit" class="btn btn-primary btn-block next">Next</button>
                     </div>
                 </form>
                 
@@ -147,9 +167,9 @@
                                placeholder="https://www.codechef.com/users/johndoe">
                     </div>
                     
-                    <div class="form-group d-inline-flex">
-                        <button type="button" class="btn btn-primary btn-block prev">Previous</button>
-                        <button type="button" class="btn btn-primary btn-block next">Next</button>
+                    <div class="wthree-field">
+                        <button type="submit" class="btn btn-primary btn-block prev">Previous</button>
+                        <button type="submit" class="btn btn-primary btn-block next">Next</button>
                     </div>
                 </form>
                 
@@ -236,9 +256,9 @@
                     </div>
                     
                     
-                    <div class="form-group d-inline-flex">
-                        <button type="button" class="btn btn-primary btn-block prev">Previous</button>
-                        <button type="button" class="btn btn-primary btn-block next">Next</button>
+                    <div class="wthree-field">
+                        <button type="submit" class="btn btn-primary btn-block prev">Previous</button>
+                        <button type="submit" class="btn btn-primary btn-block next">Next</button>
                     </div>
                 </form>
                 
@@ -263,9 +283,9 @@
                         <input type="text" class="form-control" id="otherSkills"
                                placeholder="Communications, Leadership">
                     </div>
-                    <div class="form-group d-inline-flex">
-                        <button type="button" class="btn btn-primary btn-block prev">Previous</button>
-                        <button type="button" class="btn btn-primary btn-block next">Next</button>
+                    <div class="wthree-field">
+                        <button type="submit" class="btn btn-primary btn-block prev">Previous</button>
+                        <button type="submit" class="btn btn-primary btn-block next">Next</button>
                     </div>
                 </form>
                 
@@ -297,9 +317,9 @@
                                   placeholder="Development in Google Maps"></textarea>
                     </div>
                     
-                    <div class="form-group d-inline-flex">
-                        <button type="button" class="btn btn-primary btn-block prev">Previous</button>
-                        <button type="button" class="btn btn-primary btn-block next">Next</button>
+                    <div class="wthree-field">
+                        <button type="submit" class="btn btn-primary btn-block prev">Previous</button>
+                        <button type="submit" class="btn btn-primary btn-block next">Next</button>
                     </div>
                 </form>
                 
@@ -326,9 +346,9 @@
                         <textarea type="text" class="form-control" id="projectSummary"
                                   placeholder=""></textarea>
                     </div>
-                    <div class="form-group d-inline-flex">
-                        <button type="button" class="btn btn-primary btn-block prev">Previous</button>
-                        <button type="button" class="btn btn-primary btn-block next">Next</button>
+                    <div class="wthree-field">
+                        <button type="submit" class="btn btn-primary btn-block prev">Previous</button>
+                        <button type="submit" class="btn btn-primary btn-block next">Next</button>
                     </div>
                 </form>
                 
@@ -344,15 +364,33 @@
                         <textarea type="text" class="form-control" id="activities"
                                   placeholder="Volunteer at OSU UHDS, Love hiking"></textarea>
                     </div>
-                    <div class="form-group d-inline-flex">
-                        <button type="button" class="btn btn-primary btn-block prev">Previous</button>
+                    <div class="wthree-field">
+                        <button type="submit" class="btn btn-primary btn-block prev">Previous</button>
                         <button type="submit" id="questionnaireSubmit" class="btn btn-primary btn-block">Preview &
                             Submit
                         </button>
                     </div>
                 </form>
             </div>
-            
+            <div class="bottom-grid1">
+                    <div class="links">
+                        <ul class="links-unordered-list">
+                            <li class="">
+                                <a href="about.html" class="">About Us</a>
+                            </li>
+                            <li class="">
+                                <a href="#" class="">Privacy Policy</a>
+                            </li>
+                            <li class="">
+                                <a href="#" class="">Terms of Use</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="copyright">
+                        <p>© 2019 Key. All rights reserved </a>
+                        </p>
+                    </div>
+                </div>  
             <!-- grid row -->
         
         </div>
@@ -376,5 +414,7 @@
 <script src="js/modules/intlTelInput.js"></script>
 <script src="js/jquery.validate.min.js"></script>
 <script src="js/modules/events-handler.js"></script>
+</div>
+</section>
 </body>
 </html>
