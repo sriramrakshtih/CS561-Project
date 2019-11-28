@@ -394,31 +394,31 @@ $(document).ready(function () {
     $('.next').click(function (e) {
         e.preventDefault();
         var thisForm = $(this).closest('form');
-        // if (thisForm.valid()) {
+         if (thisForm.valid()) {
         thisForm.serializeArray().map(function (x) {
             questionnaireObject[x.name] = x.value;
         });
         thisForm.addClass('d-none');
         thisForm.next().removeClass('d-none');
-        /* } else if(!thisForm.serializeArray()) {
+         } else if(!thisForm.serializeArray()) {
              thisForm.addClass('d-none');
              thisForm.next().removeClass('d-none');
-         }*/
+         }
     });
     
     $('.prev').click(function (e) {
         e.preventDefault();
         var thisForm = $(this).closest('form');
-        // if (thisForm.valid()) {
+         if (thisForm.valid()) {
         thisForm.serializeArray().map(function (x) {
             questionnaireObject[x.name] = x.value;
         });
         thisForm.addClass('d-none');
         thisForm.prev().removeClass('d-none');
-        /*} else if(!thisForm.serializeArray()) {
+        } else if(!thisForm.serializeArray()) {
             thisForm.addClass('d-none');
             thisForm.next().removeClass('d-none');
-        }*/
+        }
     });
     
     $('#questionnaireSubmit').click(function (e) {
