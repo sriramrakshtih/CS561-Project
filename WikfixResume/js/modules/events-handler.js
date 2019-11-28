@@ -1,6 +1,43 @@
 $(document).ready(function () {
     
     /**----------------------------- Login Form Submit -----------------------------**/
+    if ($('#login-form').length !== 0) {
+        $('#login-form').validate({
+            highlight: function (element, errorClass) {
+                $(element).addClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).removeClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .removeClass(errorClass);
+            },
+            rules: {
+
+                email: {
+                    required: true,
+                    // Specify that email should be validated
+                    // by the built-in "email" rule
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 5
+                }
+            },
+
+            messages: {
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Please provide correct Password"
+                },
+                email: "Please enter a valid email address"
+            }
+        });
+    }
+
+
     $('#login-form').on('submit', function (e) {
         e.preventDefault();
         var email = $('#email').val(),
@@ -26,10 +63,54 @@ $(document).ready(function () {
             }
         })
     });
+
+
     /**----------------------------- Login Form Submit Ends -----------------------------**/
     
     
     /**----------------------------- Signup Form Submit -----------------------------**/
+    if ($('#signup-form').length !== 0) {
+        $('#signup-form').validate({
+            highlight: function (element, errorClass) {
+                $(element).addClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).removeClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .removeClass(errorClass);
+            },
+            rules: {
+                name: "required",
+                email: {
+                    required: true,
+                    // Email validated by the built-in "email" rule
+                    email: true
+                },
+                password: {
+                    required: true,
+                    minlength: 5
+                },
+                agree : {
+                    required: true
+                }
+            },
+            // Specify validation error messages
+            messages: {
+                name: "Please enter your Name",
+                email: "Please enter a valid email address",
+                password: {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+                agree: {
+                    required: "Please agree to the trems and conditions."
+                }
+            }
+        });
+    }
+
     $('#signup-form').on('submit', function (e) {
         e.preventDefault();
         var name = $('#name').val(),
@@ -151,6 +232,7 @@ $(document).ready(function () {
                     //ValidateContact: true,
                     required: true,
                     number: true,
+                    minlength: 10
                 },
                 mailingAddress: {
                     required: true,
@@ -164,13 +246,14 @@ $(document).ready(function () {
                     email: "Your email address must be in the format of name@domain.com"
                 },
                 contactNumber: {
-                    required: "Your contact number is essential."
+                    required: "Your contact number is essential.",
+                    minlength: "Invalid Phone Number."
                 },
                 mailingAddress: {
                     required: "We need your mailing address for showing on your resume.",
                     minlength: "Mailing address can't be less than 4 letters."
                 }
-                
+
             }
         });
         
@@ -188,7 +271,124 @@ $(document).ready(function () {
             return msg;
         });
     }
-    
+
+    if($('#education').length !== null) {
+        $('#education').validate({
+            highlight: function (element, errorClass) {
+                $(element).addClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).removeClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .removeClass(errorClass);
+            },
+            rules: {
+                endDate: {
+                    required: true,
+                    greaterThan: "#startDate"
+                },
+                gpa: {
+                    //lesserThan: "#4"
+                    range:[0,4]
+                },
+
+                endDate1: { greaterThan: "#startDate1" },
+                gpa1: {
+                    //lesserThan: "#4"
+                    range:[0,4]
+                }
+            },
+            messages: {
+                gpa: {
+                    range: "CGPA should be lesser than 4"
+                },
+                endDate: {
+                    greaterThan: "End date should be greater than Start Date"
+                },
+                gpa1: {
+                    range: "CGPA should be lesser than 4"
+                },
+                endDate1: {
+                    greaterThan: "End date should be greater than Start Date"
+                }
+            }
+        });
+
+        jQuery.validator.addMethod("greaterThan",
+            function(value, element, params) {
+
+                if (!/Invalid|NaN/.test(new Date(value))) {
+                    return new Date(value) > new Date($(params).val());
+                }
+
+                return isNaN(value) && isNaN($(params).val())
+                    || (Number(value) > Number($(params).val()));
+            },'Must be greater than {0}.');
+
+        jQuery.validator.addMethod("lesserThan",
+            function(value, element, params) {
+
+                if (!/Invalid|NaN/.test(new Date(value))) {
+                    return new Date(value) < new Date($(params).val());
+                }
+
+                return isNaN(value) && isNaN($(params).val())
+                    || (Number(value) < Number($(params).val()));
+            },'Must be greater than {0}.');
+    }
+
+    if($('#websites').length !== 0) {
+        $('#websites').validate({
+            highlight: function (element, errorClass) {
+                $(element).addClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).removeClass(errorClass);
+                $(element.form).find("label[for=" + element.id + "]")
+                    .removeClass(errorClass);
+            },
+            rules: {
+                ownWebsite: {
+                    url : true,
+                },
+                linkedInURL: {
+                    url : true,
+                },
+                githubURL: {
+                    url : true,
+                },
+                googleScholarsURL: {
+                    url : true,
+                },
+                competitiveCodingURL: {
+                    url : true,
+                }
+
+            },
+            messages: {
+                ownWebsite: {
+                    url: "Please enter a valid url."
+                },
+                linkedInURL: {
+                    url: "Please enter a valid url."
+                },
+                githubURL: {
+                    url: "Please enter a valid url."
+                },
+                googleScholarsURL: {
+                    url: "Please enter a valid url."
+                },
+                competitiveCodingURL: {
+                    url: "Please enter a valid url."
+                }
+            }
+        });
+    }
+
     var questionnaireObject = {};
     
     $('.next').click(function (e) {
@@ -249,6 +449,11 @@ $(document).ready(function () {
     $('#show-template').click(function (e) {
         e.preventDefault();
         window.location.replace('select-template.html');
+    });
+
+    $('#edit-info').click(function (e) {
+        e.preventDefault();
+        window.location.replace('questionnaire.html');
     });
     
     $('#generate-resume').click(function (e) {
