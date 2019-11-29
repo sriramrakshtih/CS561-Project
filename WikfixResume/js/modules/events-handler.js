@@ -14,7 +14,7 @@ $(document).ready(function () {
                     .removeClass(errorClass);
             },
             rules: {
-
+                
                 email: {
                     required: true,
                     // Specify that email should be validated
@@ -26,7 +26,7 @@ $(document).ready(function () {
                     minlength: 5
                 }
             },
-
+            
             messages: {
                 password: {
                     required: "Please provide a password",
@@ -36,8 +36,8 @@ $(document).ready(function () {
             }
         });
     }
-
-
+    
+    
     $('#login-form').on('submit', function (e) {
         e.preventDefault();
         var email = $('#email').val(),
@@ -63,8 +63,8 @@ $(document).ready(function () {
             }
         })
     });
-
-
+    
+    
     /**----------------------------- Login Form Submit Ends -----------------------------**/
     
     
@@ -92,7 +92,7 @@ $(document).ready(function () {
                     required: true,
                     minlength: 5
                 },
-                agree : {
+                agree: {
                     required: true
                 }
             },
@@ -110,7 +110,7 @@ $(document).ready(function () {
             }
         });
     }
-
+    
     $('#signup-form').on('submit', function (e) {
         e.preventDefault();
         var name = $('#name').val(),
@@ -159,16 +159,14 @@ $(document).ready(function () {
     /**----------------------------- SetUp International Telephone Input Ends -----------------------------**/
     
     /**----------------------------- Questionnaire Related -----------------------------**/
-    $('#hrefOtherSchool').click(function (e) {
+    $('.addAnother').click(function (e) {
         e.preventDefault();
-        if (e.target.innerHTML === "Add another school") {
-            $('.other-school').removeClass('d-none');
-            e.target.innerHTML = "Remove other school";
-        } else if (e.target.innerHTML === "Remove other school") {
-            $('.other-school').addClass('d-none');
-            e.target.innerHTML = "Add another school";
-            $('.other-school').find('input, select').val('');
-        }
+        var formId = $(e.target.closest('form')).attr('id');
+        $('#' + formId + ' .template').last().after("<hr style='border-top: 1px dotted;'/>");
+        $('#' + formId + ' hr').last().after($('#' + formId + ' .template:first')[0].outerHTML);
+        $('html,body').animate({
+            scrollTop: $('#' + formId + ' .template:last').offset().top
+        });
     });
     
     $('#currentWork').change(function () {
@@ -178,27 +176,12 @@ $(document).ready(function () {
             $('#jobEndDate').prop('disabled', false);
         }
     });
-    $('#currentWork1').change(function () {
-        if (this.checked) {
-            $('#jobEndDate1').prop('disabled', true);
-        } else {
-            $('#jobEndDate1').prop('disabled', false);
-        }
-    });
     
     $('#currentStudy').change(function () {
         if (this.checked) {
             $('#endDate').prop('disabled', true);
         } else {
             $('#endDate').prop('disabled', false);
-        }
-    });
-    
-    $('#currentStudy1').change(function () {
-        if (this.checked) {
-            $('#endDate1').prop('disabled', true);
-        } else {
-            $('#endDate1').prop('disabled', false);
         }
     });
     
@@ -253,7 +236,7 @@ $(document).ready(function () {
                     required: "We need your mailing address for showing on your resume.",
                     minlength: "Mailing address can't be less than 4 letters."
                 }
-
+                
             }
         });
         
@@ -271,8 +254,8 @@ $(document).ready(function () {
             return msg;
         });
     }
-
-    if($('#education').length !== null) {
+    
+    if ($('#education').length !== null) {
         $('#education').validate({
             highlight: function (element, errorClass) {
                 $(element).addClass(errorClass);
@@ -291,13 +274,13 @@ $(document).ready(function () {
                 },
                 gpa: {
                     //lesserThan: "#4"
-                    range:[0,4]
+                    range: [0, 4]
                 },
-
-                endDate1: { greaterThan: "#startDate1" },
+                
+                endDate1: {greaterThan: "#startDate1"},
                 gpa1: {
                     //lesserThan: "#4"
-                    range:[0,4]
+                    range: [0, 4]
                 }
             },
             messages: {
@@ -315,31 +298,31 @@ $(document).ready(function () {
                 }
             }
         });
-
+        
         jQuery.validator.addMethod("greaterThan",
-            function(value, element, params) {
-
+            function (value, element, params) {
+                
                 if (!/Invalid|NaN/.test(new Date(value))) {
                     return new Date(value) > new Date($(params).val());
                 }
-
+                
                 return isNaN(value) && isNaN($(params).val())
                     || (Number(value) > Number($(params).val()));
-            },'Must be greater than {0}.');
-
+            }, 'Must be greater than {0}.');
+        
         jQuery.validator.addMethod("lesserThan",
-            function(value, element, params) {
-
+            function (value, element, params) {
+                
                 if (!/Invalid|NaN/.test(new Date(value))) {
                     return new Date(value) < new Date($(params).val());
                 }
-
+                
                 return isNaN(value) && isNaN($(params).val())
                     || (Number(value) < Number($(params).val()));
-            },'Must be greater than {0}.');
+            }, 'Must be greater than {0}.');
     }
-
-    if($('#websites').length !== 0) {
+    
+    if ($('#websites').length !== 0) {
         $('#websites').validate({
             highlight: function (element, errorClass) {
                 $(element).addClass(errorClass);
@@ -353,21 +336,21 @@ $(document).ready(function () {
             },
             rules: {
                 ownWebsite: {
-                    url : true,
+                    url: true,
                 },
                 linkedInURL: {
-                    url : true,
+                    url: true,
                 },
                 githubURL: {
-                    url : true,
+                    url: true,
                 },
                 googleScholarsURL: {
-                    url : true,
+                    url: true,
                 },
-                competitiveCodingURL: {
-                    url : true,
+                otherURL: {
+                    url: true,
                 }
-
+                
             },
             messages: {
                 ownWebsite: {
@@ -382,43 +365,75 @@ $(document).ready(function () {
                 googleScholarsURL: {
                     url: "Please enter a valid url."
                 },
-                competitiveCodingURL: {
+                otherURL: {
                     url: "Please enter a valid url."
                 }
             }
         });
     }
-
+    
     var questionnaireObject = {};
     
     $('.next').click(function (e) {
         e.preventDefault();
         var thisForm = $(this).closest('form');
-        // if (thisForm.valid()) {
-        thisForm.serializeArray().map(function (x) {
-            questionnaireObject[x.name] = x.value;
-        });
-        thisForm.addClass('d-none');
-        thisForm.next().removeClass('d-none');
-        /* } else if(!thisForm.serializeArray()) {
-             thisForm.addClass('d-none');
-             thisForm.next().removeClass('d-none');
-         }*/
+        if (thisForm.valid()) {
+            var formId = thisForm.attr('id');
+            var templates = $("#" + formId + " div.template");
+            if (formId === 'education' || formId === 'experience' || formId === 'projects') {
+                var tempList = [];
+                for (var i = 0; i < templates.length; i++) {
+                    var fields = $(templates[i]).find('.form-control').serializeArray();
+                    var fieldObj = {};
+                    $.each(fields, function (i, field) {
+                        fieldObj[field.name] = field.value;
+                    });
+                    tempList.push(fieldObj);
+                }
+                questionnaireObject[formId] = tempList;
+            } else {
+                questionnaireObject[formId] = {};
+                thisForm.serializeArray().map(function (x) {
+                    questionnaireObject[formId][x.name] = x.value;
+                });
+            }
+            thisForm.addClass('d-none');
+            thisForm.next().removeClass('d-none');
+        } else if (!thisForm.serializeArray()) {
+            thisForm.addClass('d-none');
+            thisForm.next().removeClass('d-none');
+        }
     });
     
     $('.prev').click(function (e) {
         e.preventDefault();
         var thisForm = $(this).closest('form');
-        // if (thisForm.valid()) {
-        thisForm.serializeArray().map(function (x) {
-            questionnaireObject[x.name] = x.value;
-        });
-        thisForm.addClass('d-none');
-        thisForm.prev().removeClass('d-none');
-        /*} else if(!thisForm.serializeArray()) {
+        if (thisForm.valid()) {
+            var formId = thisForm.attr('id');
+            var templates = $("#" + formId + " div.template");
+            if (formId === 'education' || formId === 'experience' || formId === 'projects') {
+                var tempList = [];
+                for (var i = 0; i < templates.length; i++) {
+                    var fields = $(templates[i]).find('.form-control').serializeArray();
+                    var fieldObj = {};
+                    $.each(fields, function (i, field) {
+                        fieldObj[field.name] = field.value;
+                    });
+                    tempList.push(fieldObj);
+                }
+                questionnaireObject[formId] = tempList;
+            } else {
+                questionnaireObject[formId] = {};
+                thisForm.serializeArray().map(function (x) {
+                    questionnaireObject[formId][x.name] = x.value;
+                });
+            }
             thisForm.addClass('d-none');
             thisForm.next().removeClass('d-none');
-        }*/
+        } else if (!thisForm.serializeArray()) {
+            thisForm.addClass('d-none');
+            thisForm.next().removeClass('d-none');
+        }
     });
     
     $('#questionnaireSubmit').click(function (e) {
@@ -445,12 +460,12 @@ $(document).ready(function () {
         })
     });
     /**----------------------------- Questionnaire Related Ends-----------------------------**/
-
+    
     $('#show-template').click(function (e) {
         e.preventDefault();
         window.location.replace('select-template.html');
     });
-
+    
     $('#edit-info').click(function (e) {
         e.preventDefault();
         window.location.replace('questionnaire.html');
