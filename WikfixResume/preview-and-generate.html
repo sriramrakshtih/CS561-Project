@@ -78,7 +78,7 @@
                                 <tr>
                                     <th scope="col">Field</th>
                                     <th scope="col">Your Input</th>
-                                    <th scope="col"><a href="#" class="btn btn-info btn-lg" id="edit-info">
+                                    <th scope="col"><a href="#" class="btn btn-info pull-right" id="edit-info">
                                         <span class="glyphicon glyphicon-edit"></span> Edit
                                     </a></th>
                                 </tr>
@@ -149,6 +149,13 @@
 
 <script>
     var map = {
+        'personalInfo': 'Personal Information',
+        'websites': 'Your Websites / Online Presence',
+        'education': 'Education / Academics',
+        'skills': 'Skills',
+        'experience': 'Professional Experience',
+        'projects': 'Academic Projects',
+        'accoladesInterests': 'Accolades, Activities and Interests',
         'name': 'Name',
         'emailID': 'Email Address',
         'contactNumber': 'Contact Number',
@@ -158,19 +165,13 @@
         'linkedInURL': 'LinkedIn URL',
         'githubURL': 'GitHub URL',
         'googleScholarsURL': 'Google Scholars URL',
-        'competitiveCodingURL': 'Competitive Coding Platform URL',
+        'otherURL': 'Other URL',
         'university': 'School Name',
         'degree': 'Degree Obtained',
         'concentration': 'Concentration of Study',
         'startDate': 'Start Date',
         'endDate': 'End Date',
         'gpa': 'GPA',
-        'university1': 'Another School Name',
-        'degree1': 'Degree Obtained',
-        'concentration1': 'Concentration of Study',
-        'startDate1': 'Start Date',
-        'endDate1': 'End Date',
-        'gpa1': 'GPA',
         'technical': 'Technical Skills',
         'laboratory': 'Laboratory Work',
         'languages': 'Languages Known',
@@ -201,13 +202,35 @@
             success: function (result) {
                 if (result) {
                     var outputJSON = JSON.parse(result.data);
-                    var tr;
+                    var tr, val;
                     for (var key of Object.keys(outputJSON)) {
-                        if (outputJSON[key] && outputJSON[key] !== "--Select--") {
+                        if (outputJSON[key]) {
                             tr = $('<tr/>');
-                            tr.append("<td>" + map[key] + "</td>");
-                            tr.append("<td>" + outputJSON[key] + "</td>");
+                            tr.append("<td colspan='3' style='color: orange'>" + map[key] + "</td>");
                             $('#preview_data').append(tr);
+                            var keys1 = Object.keys(outputJSON[key]);
+                            keys1.forEach(function (key1) {
+                                if (outputJSON[key].length) {
+                                    var keys2 = Object.keys(outputJSON[key]['' + key1 + '']);
+                                    keys2.forEach(function (key2) {
+                                        val = outputJSON[key]['' + key1 + '']['' + key2 + ''];
+                                        if (val && val !== '--Select--') {
+                                            tr = $('<tr/>');
+                                            tr.append("<td>" + map[key2] + "</td>");
+                                            tr.append("<td colspan='2'>" + outputJSON[key]['' + key1 + '']['' + key2 + ''] + "</td>");
+                                            $('#preview_data').append(tr);
+                                        }
+                                    });
+                                } else {
+                                    val = outputJSON[key]['' + key1 + ''];
+                                    if (val && val !== '--Select--') {
+                                        tr = $('<tr/>');
+                                        tr.append("<td>" + map[key1] + "</td>");
+                                        tr.append("<td colspan='2'>" + outputJSON[key]['' + key1 + ''] + "</td>");
+                                        $('#preview_data').append(tr);
+                                    }
+                                }
+                            });
                         }
                     }
                 }
