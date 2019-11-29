@@ -429,10 +429,10 @@ $(document).ready(function () {
                 });
             }
             thisForm.addClass('d-none');
-            thisForm.next().removeClass('d-none');
+            thisForm.prev().removeClass('d-none');
         } else if (!thisForm.serializeArray()) {
             thisForm.addClass('d-none');
-            thisForm.next().removeClass('d-none');
+            thisForm.prev().removeClass('d-none');
         }
     });
     
