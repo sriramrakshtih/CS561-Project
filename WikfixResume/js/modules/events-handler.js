@@ -105,7 +105,7 @@ $(document).ready(function () {
                     minlength: "Your password must be at least 5 characters long"
                 },
                 agree: {
-                    required: "Please agree to the trems and conditions."
+                    required: "Please agree to the terms and conditions."
                 }
             }
         });
