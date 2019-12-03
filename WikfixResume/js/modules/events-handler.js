@@ -463,6 +463,27 @@ $(document).ready(function () {
     
     $('#show-template').click(function (e) {
         e.preventDefault();
+
+        var queryParams = '?user_id=' + localStorage.getItem('user_id') + '&payload=' + JSON.stringify(questionnaireObject);
+        queryParams = queryParams.split(' ').join('%20').split('"').join('%22');
+        $.ajax({
+            method: 'GET',
+            //contentType: "application/json",
+            //dataType: 'json',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+            },
+            url: 'https://resume-server-561.herokuapp.com/data/submit' + queryParams,
+            //data: JSON.stringify(questionnaireObject),
+            success: function (result) {
+                if (result) {
+                    window.location.replace('preview-and-generate.html');
+                }
+            },
+            error: function (result) {
+                alert("Couldn't insert data!")
+            }
+        })
         window.location.replace('select-template.html');
     });
     
