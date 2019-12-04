@@ -10,11 +10,11 @@
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
-
+        
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
-
+    
     </script>
     <title>Resume Maker - Preview Data</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -48,7 +48,7 @@
                         </li>
                     </ul>
                 </div>
-
+                
                 <div class="links">
                     <ul class="links-unordered-list">
                         <li class="active">
@@ -67,10 +67,10 @@
             </div>
             <main>
                 <div class="container pt-5">
-
+                    
                     <!-- grid row -->
                     <div class="row">
-
+                        
                         <div class="col-md-8 preview-div m-auto">
                             <h2>You have entered the following details:</h2>
                             <table class="table text-white table-dark table-striped rounded">
@@ -79,9 +79,13 @@
                                     <th scope="col">Field</th>
                                     <th scope="col">Your Input</th>
                                     <th scope="col">
+                                        
                                         <div class="wthree-field">
-                                             <button  onclick="editMe()" type="submit" class="btn btn-primary btn-block ">Edit</button>
+                                            <button onclick="editMe()" type="submit" class="btn btn-primary btn-block ">
+                                                Edit
+                                            </button>
                                         </div>
+                                    
                                     </th>
                                 </tr>
                                 </thead>
@@ -97,9 +101,9 @@
                     </div>
                 </div>
             </main>
-
+        
         </header>
-
+        
         <!-- JQuery -->
         <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
         <!-- Bootstrap tooltips -->
@@ -111,20 +115,16 @@
         <script src="js/modules/intlTelInput.js"></script>
         <script src="js/jquery.validate.min.js"></script>
         <script src="js/modules/events-handler.js"></script>
-
+        
         <script>
-
-            function editMe()
-            {
+            
+            function editMe() {
                 //$(':input').removeAttr('readonly');
                 $(' input[type="text"]').prop("disabled", false);
-                $(' input[type="text"]').css('backgroundColor','white');
-                $(' input[type="text"]').css('color','black');
-
-
+                $(' input[type="text"]').css('backgroundColor', 'white');
+                $(' input[type="text"]').css('color', 'black');
             }
-
-
+        
         </script>
     </div>
     <footer>
@@ -164,12 +164,12 @@
 <script src="js/modules/intlTelInput.js"></script>
 <script src="js/modules/events-handler.js"></script>
 <style>
-    #unique{
+    #unique {
         background: transparent;
         border: none;
         color: white;
         outline: none;
-
+        
     }
 </style>
 <script>
@@ -213,7 +213,9 @@
         'accolades': 'Accolades',
         'activities': 'Activities & Interests'
     };
-
+    
+    var serverURL = 'https://resbuild-server.herokuapp.com/';
+    
     function showPreview() {
         $.ajax({
             method: 'GET',
@@ -222,13 +224,13 @@
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
             },
-            url: 'https://resume-server-561.herokuapp.com/data/fetch?user_id=' + localStorage.getItem('user_id'),
+            url: serverURL + 'data/fetch?user_id=' + localStorage.getItem('user_id'),
             //data: JSON.stringify(questionnaireObject),
             success: function (result) {
-
+                
                 if (result) {
                     var outputJSON = JSON.parse(result.data);
-
+                    
                     var tr, val;
                     for (var key of Object.keys(outputJSON)) {
                         if (outputJSON[key]) {
@@ -242,10 +244,10 @@
                                     keys2.forEach(function (key2) {
                                         val = outputJSON[key]['' + key1 + '']['' + key2 + ''];
                                         if (val && val !== '--Select--') {
-
+                                            
                                             tr = $('<tr/>');
                                             tr.append("<td>" + map[key2] + "</td>");
-                                            tr.append("<td colspan='2'><input type='text' id='unique' disabled value='" + outputJSON[key]['' + key1 + '']['' + key2 + ''] + "'/></td>");
+                                            tr.append("<td colspan='2'><input type='text' style='width: 100%;' id='unique' disabled value='" + outputJSON[key]['' + key1 + '']['' + key2 + ''] + "'/></td>");
                                             $('#preview_data').append(tr);
                                         }
                                     });
@@ -254,7 +256,7 @@
                                     if (val && val !== '--Select--') {
                                         tr = $('<tr/>');
                                         tr.append("<td>" + map[key1] + "</td>");
-                                        tr.append("<td colspan='2'><input type='text' id='unique' disabled value=' " + outputJSON[key]['' + key1 + ''] + "'/></td>");
+                                        tr.append("<td colspan='2'><input type='text' style='width: 100%;' id='unique' disabled value=' " + outputJSON[key]['' + key1 + ''] + "'/></td>");
                                         $('#preview_data').append(tr);
                                     }
                                 }
@@ -268,7 +270,7 @@
             }
         });
     }
-
+    
     if (!localStorage.getItem('token')) {
         window.location.replace('index.html');
     } else {
