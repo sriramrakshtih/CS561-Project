@@ -1,5 +1,6 @@
 $(document).ready(function () {
     
+    var serverURL = 'https://resbuild-server.herokuapp.com/';
     /**----------------------------- Login Form Submit -----------------------------**/
     if ($('#login-form').length !== 0) {
         $('#login-form').validate({
@@ -46,7 +47,7 @@ $(document).ready(function () {
             method: 'POST',
             contentType: "application/json",
             dataType: 'json',
-            url: 'https://resume-server-561.herokuapp.com/auth/signin',
+            url: serverURL + 'auth/signin',
             data: JSON.stringify({
                 'email': email,
                 'password': password
@@ -55,7 +56,7 @@ $(document).ready(function () {
                 if (result) {
                     localStorage.setItem("token", result.token);
                     localStorage.setItem("user_id", result.user_id);
-                    window.location.replace('questionnaire.html');
+                    window.location.href = 'questionnaire.html';
                 }
             },
             error: function () {
@@ -118,7 +119,7 @@ $(document).ready(function () {
             password = $('#password').val();
         $.ajax({
             method: 'PUT',
-            url: 'https://resume-server-561.herokuapp.com/auth/signup',
+            url: serverURL + 'auth/signup',
             dataType: 'json',
             contentType: "application/json",
             data: JSON.stringify({
@@ -171,24 +172,30 @@ $(document).ready(function () {
     
     $('#currentWork').change(function () {
         if (this.checked) {
-            $('#jobEndDate').prop('disabled', true);
+            $('#jobEndDate').prop('readonly', true);
         } else {
-            $('#jobEndDate').prop('disabled', false);
+            $('#jobEndDate').removeProp('readonly');
         }
     });
     
     $('#currentStudy').change(function () {
         if (this.checked) {
-            $('#endDate').prop('disabled', true);
+            $('#endDate').get(0).type = 'text';
+            $('#endDate').val('Present');
+            $('#endDate').prop('readonly', true);
         } else {
-            $('#endDate').prop('disabled', false);
+            $('#endDate').get(0).type = 'date';
+            $('#endDate').removeProp('readonly');
         }
     });
     
     $('#currentProject').change(function () {
         if (this.checked) {
+            $('#projectEndDate').get(0).type = 'text';
+            $('#projectEndDate').val('Present');
             $('#projectEndDate').prop('disabled', true);
         } else {
+            $('#projectEndDate').get(0).type = 'date';
             $('#projectEndDate').prop('disabled', false);
         }
     });
@@ -275,12 +282,6 @@ $(document).ready(function () {
                 gpa: {
                     //lesserThan: "#4"
                     range: [0, 4]
-                },
-                
-                endDate1: {greaterThan: "#startDate1"},
-                gpa1: {
-                    //lesserThan: "#4"
-                    range: [0, 4]
                 }
             },
             messages: {
@@ -290,12 +291,6 @@ $(document).ready(function () {
                 endDate: {
                     greaterThan: "End date should be greater than Start Date"
                 },
-                gpa1: {
-                    range: "CGPA should be lesser than 4"
-                },
-                endDate1: {
-                    greaterThan: "End date should be greater than Start Date"
-                }
             }
         });
         
@@ -447,11 +442,11 @@ $(document).ready(function () {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
             },
-            url: 'https://resume-server-561.herokuapp.com/data/submit' + queryParams,
+            url: serverURL + 'data/submit' + queryParams,
             //data: JSON.stringify(questionnaireObject),
             success: function (result) {
                 if (result) {
-                    window.location.replace('preview-and-generate.html');
+                    window.location.href = 'preview-and-generate.html';
                 }
             },
             error: function (result) {
@@ -463,7 +458,7 @@ $(document).ready(function () {
     
     $('#show-template').click(function (e) {
         e.preventDefault();
-
+        
         var queryParams = '?user_id=' + localStorage.getItem('user_id') + '&payload=' + JSON.stringify(questionnaireObject);
         queryParams = queryParams.split(' ').join('%20').split('"').join('%22');
         $.ajax({
@@ -473,36 +468,7 @@ $(document).ready(function () {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
             },
-            url: 'https://resume-server-561.herokuapp.com/data/submit' + queryParams,
-            //data: JSON.stringify(questionnaireObject),
-            success: function (result) {
-                if (result) {
-                    window.location.replace('preview-and-generate.html');
-                }
-            },
-            error: function (result) {
-                alert("Couldn't insert data!")
-            }
-        })
-        window.location.replace('select-template.html');
-    });
-    
-    $('#edit-info').click(function (e) {
-        e.preventDefault();
-        window.location.replace('questionnaire.html');
-    });
-    
-    $('#generate-resume').click(function (e) {
-        e.preventDefault();
-        var queryParams = '?user_id=' + localStorage.getItem('user_id') + '&template_code=1';
-        $.ajax({
-            method: 'GET',
-            //contentType: "application/json",
-            //dataType: 'json',
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
-            },
-            url: 'https://resume-server-561.herokuapp.com/data/download' + queryParams,
+            url: serverURL + 'data/submit' + queryParams,
             //data: JSON.stringify(questionnaireObject),
             success: function (result) {
                 if (result) {
@@ -510,9 +476,21 @@ $(document).ready(function () {
                 }
             },
             error: function (result) {
-                alert("Couldn't fetch resume template!")
+                alert("Couldn't insert data!")
             }
-        })
+        });
+        window.location.href = 'select-template.html';
+    });
+    
+    $('#generate-resume').click(function (e) {
+        e.preventDefault();
+        if(!$('.template-div img.selected').length) {
+            alert("Please choose at least one template.");
+        } else {
+            var templateId = $('.template-div img.selected').attr('id');
+            var queryParams = '?user_id=' + localStorage.getItem('user_id') + '&template_code=' + templateId;
+            window.location.href = serverURL + 'download' + queryParams;
+        }
     });
     
     $('.template-div img').click(function () {
