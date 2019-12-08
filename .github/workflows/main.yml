@@ -9,5 +9,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: cd WikfixResume | python -m SimpleHTTPServer 80
-      run: echo Hello, world!
+    - name: Start Python's werkzeug 
+      run: cd WikfixResume | python -m SimpleHTTPServer 80
